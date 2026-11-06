@@ -1,7 +1,5 @@
 name: Update IIHF calendar
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
