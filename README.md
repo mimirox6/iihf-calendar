@@ -1,47 +1,64 @@
-# IIHF 2026 Women's World Championship - Live Calendar
+# IIHF Women's Worlds – Google Calendar sync
 
-An **unofficial** 29-game iCalendar feed, backed by the IIHF Hydra statistics schedule. It updates start times, teams (including playoff matchups), statuses and final scores when those fields appear in the official source. Event IDs remain stable by IIHF game number.
+This is an **add-on** to your existing `mimirox6/iihf-calendar` repository. It does not replace the IIHF scraper, existing games, or public `.ics` feed.
 
-## Set up on GitHub (free)
+## Files to upload to the existing repository
 
-1. Create a **public** GitHub repository, e.g. `iihf-womens-calendar`.
-2. Upload the **contents** of this folder to the repository root, including `.github/workflows/update.yml`.
-3. In **Settings → Actions → General → Workflow permissions**, choose **Read and write permissions** and save. (Some organizations restrict this.)
-4. In **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/docs`, then save.
-5. In **Actions → Update IIHF calendar**, choose **Run workflow**. Check that it completes successfully.
-6. Wait for GitHub Pages to publish. The subscription URL is:
-   `https://YOUR-USERNAME.github.io/iihf-womens-calendar/calendar.ics`
-   Replace both the username and repo name if yours differs.
-7. Verify that `calendar.ics` loads and shows 29 `VEVENT` entries.
+- `google_calendar_sync.py` → repository root
+- `.github/workflows/update.yml` → **replace** existing file at this path
 
-The scheduled workflow attempts updates every 30 minutes; GitHub Actions schedules are best-effort and can be delayed. A source parsing error fails the workflow rather than silently replacing correct data. Check Actions for failures. GitHub Pages propagation and client refresh add further delay.
+Do not upload `games.sample.json` or the tests unless you want them for reference. Keep your existing `docs/games.json`, `calendar_feed.py`, and `requirements.txt` unchanged.
 
-## Subscribe (do not import if you want updates)
+## 1. Create a Google Calendar
 
-- **Google Calendar (desktop web):** Other calendars → + → From URL → paste the HTTPS `.ics` link → Add calendar. Google determines its own refresh frequency.
-- **Outlook on the web:** Calendar → Add calendar → Subscribe from web → paste the HTTPS `.ics` link → Import/Save. Menu wording may vary by Outlook version.
-- **Apple Calendar (Mac):** File → New Calendar Subscription → paste the HTTPS `.ics` link → choose refresh interval.
-- **iPhone/iPad:** Settings → Apps → Calendar → Calendar Accounts → Add Account → Other → Add Subscribed Calendar (menu path varies by iOS version).
+On a desktop, open Google Calendar → Settings → Add calendar → Create new calendar. Name it `IIHF Women's Worlds 2026`. Initially keep it private. Under that calendar's **Integrate calendar**, copy **Calendar ID** (often ends in `@group.calendar.google.com`).
 
-Use the HTTPS URL for subscriptions; downloading/importing `calendar.ics` once creates a static copy.
+## 2. Create a Google Cloud service account
 
-## Technical details
+1. In Google Cloud Console, create/select a project you control.
+2. Enable **Google Calendar API** for that project.
+3. Go to **IAM & Admin → Service Accounts** and create a service account (no project-wide roles needed).
+4. Open the service account → **Keys → Add key → Create new key → JSON**. Download the JSON securely. Treat it like a password. Google Cloud organization policies may disable service-account key creation; if so, stop rather than weakening policies.
+5. Back in Google Calendar, open the new calendar's **Share with specific people or groups** and share it with the service account email (from the JSON `client_email`), granting **Make changes to events**. Do not grant access to your main calendar.
 
-- Game dates and times are preserved as **Denmark local time (`Europe/Copenhagen`)** in the ICS, with a `VTIMEZONE` definition for portability. Calendar applications generally display these events in each subscriber’s local time zone automatically. In November 2026 Denmark observes CET (UTC+1).
-- Events are allocated 2.5 hours; IIHF schedule supplies start times, not guaranteed end times.
-- `UID` is fixed for each of games 1-29, so playoff placeholders can become actual team matchups.
-- Final scores are placed in the event title **only if the official source explicitly supplies a score and final status**. The parser deliberately does not treat `0-0` placeholders as results.
-- The parser depends on the current structure of IIHF's public Hydra HTML. If the site changes, updates will stop and require a parser adjustment. The code does not use an official documented API.
-- The initial `docs/calendar.ics` is a static seed. The feed becomes auto-updating **only after you host it and enable the workflow**.
-- Tournament is November 6-16, 2026. You can disable the workflow after results are final.
+## 3. Add GitHub secrets
 
-## Local checks
+Repository → Settings → Secrets and variables → Actions → Secrets → New repository secret:
 
-```sh
-python -m pip install -r requirements.txt
-python -m unittest discover -s tests -v
-python calendar_feed.py --offline  # regenerate from saved games.json
-python calendar_feed.py            # fetch and validate IIHF live data
-```
+- `GOOGLE_CALENDAR_ID`: the ID from step 1
+- `GOOGLE_SERVICE_ACCOUNT_JSON`: paste the **entire** JSON key file contents, including braces
 
-This is not affiliated with IIHF. Follow IIHF's website access rules and keep polling reasonable.
+Never commit the JSON key to GitHub or send it in a screenshot.
+
+Repository → Settings → Secrets and variables → Actions → Variables → New repository variable:
+
+- Name: `GOOGLE_SYNC_DRY_RUN`
+- Value: `true`
+
+The sync workflow skips Google entirely if secrets are missing. When secrets exist, it checks the 29 game records and prints what would be created or changed without writing.
+
+## 4. Upload files and test
+
+1. Upload `google_calendar_sync.py` to repository root.
+2. Replace `.github/workflows/update.yml` with the supplied version. In GitHub, open that file → pencil icon → replace content → commit.
+3. Go to Actions → Update IIHF calendar → Run workflow.
+4. Open the **Sync to Google Calendar** step. Expect `DRY RUN: 29 changes` for a new calendar. If it errors, do not enable writes; check service account permissions, calendar ID and API access.
+5. Set `GOOGLE_SYNC_DRY_RUN` to `false` under Actions Variables.
+6. Run the workflow again. Confirm `SYNC: 29 changes` (create) and verify the 29 games in the new Google Calendar.
+7. Run a third time. Expect `SYNC: 0 changes` (unless the official data changed).
+
+## 5. Make the Google Calendar public and share it
+
+After verifying the events, in Google Calendar → Settings → your IIHF calendar → Access permissions for events → Make available to public. Choose **See all event details** if you want everyone to see teams and scores. Google may warn that anyone can find this calendar; confirm only if you're comfortable with that. Under **Integrate calendar**, copy its **Public URL to this calendar** for viewers. If your organization restricts public sharing, you may need to use a personal Google account or retain the public `.ics` link instead.
+
+**Time zone:** Every game uses `Europe/Copenhagen`; Google displays the correct local time for each viewer. Google may take time to refresh displays.
+
+## Safeguards and limitations
+
+- Only the 29 known numbered games are synchronized. If the IIHF parser fails, the existing workflow stops before Google sync.
+- The script creates deterministic Google event IDs and updates only events with matching private source markers. It **never deletes events**.
+- The first run is read-only by default. An explicit variable change is required to write.
+- The GitHub workflow is scheduled every 30 minutes, but GitHub Actions may delay runs. A green run proves execution, not necessarily an IIHF score change.
+- Google Calendar service accounts may be restricted by Workspace policies; use an account you control.
+- A calendar made public is accessible to anyone with the link and may be indexed.
+- Scores update only when the upstream IIHF feed exposes them and the existing parser recognizes them.
