@@ -270,7 +270,7 @@
     "home": "SUI",
     "number": 3,
     "phase": "PRE",
-    "score_away": 3,
+    "score_away": 6,
     "score_home": 0,
     "status": "Live",
     "time": "19:00"
@@ -282,8 +282,8 @@
     "home": "DEN",
     "number": 4,
     "phase": "PRE",
-    "score_away": 3,
-    "score_home": 0,
+    "score_away": 4,
+    "score_home": 1,
     "status": "Live",
     "time": "19:00"
   },
