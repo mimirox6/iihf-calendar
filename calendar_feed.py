@@ -71,11 +71,21 @@ def parse_stats(html):
         home, away = teams.groups()
         # Score is accepted only when between the team pairing and a status token.
         remainder = tail[teams.end():]
-        status_match = re.search(r'\b(Final|Finished|Scheduled|Live|In Progress|Postponed|Cancelled|Canceled|After OT|After SO)\b', remainder, re.I)
-        status = status_match.group(1) if status_match else 'Scheduled'
+        if re.search(r'\bGame\s+Completed\b', remainder, re.I):
+            status = 'Final'
+        elif re.search(r'\b(Final|Finished|After OT|After SO)\b', remainder, re.I):
+            status = 'Final'
+        elif re.search(r'\bLive\b|\bPeriod\s+\d+\s+Ended\b|\bIn Progress\b', remainder, re.I):
+            status = 'Live'
+        elif re.search(r'\bPostponed\b', remainder, re.I):
+            status = 'Postponed'
+        elif re.search(r'\b(Cancelled|Canceled)\b', remainder, re.I):
+            status = 'Cancelled'
+        else:
+            status = 'Scheduled'
         score_home = score_away = None
         score = re.search(r'\b(\d{1,2})\s*[-–:]\s*(\d{1,2})\b', remainder)
-        if score and re.search(r'Final|Finished|After OT|After SO|Live|In Progress', status, re.I):
+        if score and status in ('Final', 'Live'):
             score_home,score_away = map(int,score.groups())
         city = 'Esbjerg' if 'Esbjerg' in text else 'Herning' if 'Herning' in text else None
         found[str(number)] = {'number':number,'date':f'2026-11-{int(date.group(1)):02d}',
