@@ -1,0 +1,405 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IIHF Women Worlds 2026//Community Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:IIHF Women Worlds 2026 - Live Results
+X-WR-TIMEZONE:Europe/Copenhagen
+REFRESH-INTERVAL;VALUE=DURATION:PT30M
+X-PUBLISHED-TTL:PT30M
+BEGIN:VTIMEZONE
+TZID:Europe/Copenhagen
+X-LIC-LOCATION:Europe/Copenhagen
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-1@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261106T150000
+DTEND;TZID=Europe/Copenhagen:20261106T173000
+SUMMARY:Austria vs Czechia
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 1 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-2@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261106T150000
+DTEND;TZID=Europe/Copenhagen:20261106T173000
+SUMMARY:Sweden vs Canada
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 2 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-3@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261106T190000
+DTEND;TZID=Europe/Copenhagen:20261106T213000
+SUMMARY:Switzerland vs United States
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 3 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-4@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261106T190000
+DTEND;TZID=Europe/Copenhagen:20261106T213000
+SUMMARY:Denmark vs Finland
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 4 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-5@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261107T190000
+DTEND;TZID=Europe/Copenhagen:20261107T213000
+SUMMARY:Germany vs Austria
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 5 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-6@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261107T190000
+DTEND;TZID=Europe/Copenhagen:20261107T213000
+SUMMARY:Japan vs Denmark
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 6 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-7@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261108T150000
+DTEND;TZID=Europe/Copenhagen:20261108T173000
+SUMMARY:United States vs Germany
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 7 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-8@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261108T150000
+DTEND;TZID=Europe/Copenhagen:20261108T173000
+SUMMARY:Finland vs Sweden
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 8 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-9@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261108T190000
+DTEND;TZID=Europe/Copenhagen:20261108T213000
+SUMMARY:Czechia vs Switzerland
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 9 - Preliminary roun
+ d\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/e
+ vents/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-10@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261108T190000
+DTEND;TZID=Europe/Copenhagen:20261108T213000
+SUMMARY:Canada vs Japan
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 10 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-11@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261109T190000
+DTEND;TZID=Europe/Copenhagen:20261109T213000
+SUMMARY:Austria vs United States
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 11 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-12@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261109T190000
+DTEND;TZID=Europe/Copenhagen:20261109T213000
+SUMMARY:Denmark vs Canada
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 12 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-13@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261110T150000
+DTEND;TZID=Europe/Copenhagen:20261110T173000
+SUMMARY:Czechia vs Germany
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 13 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-14@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261110T150000
+DTEND;TZID=Europe/Copenhagen:20261110T173000
+SUMMARY:Finland vs Japan
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 14 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-15@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261110T190000
+DTEND;TZID=Europe/Copenhagen:20261110T213000
+SUMMARY:Switzerland vs Austria
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 15 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-16@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261110T190000
+DTEND;TZID=Europe/Copenhagen:20261110T213000
+SUMMARY:Sweden vs Denmark
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 16 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-17@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261111T150000
+DTEND;TZID=Europe/Copenhagen:20261111T173000
+SUMMARY:Germany vs Switzerland
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 17 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-18@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261111T150000
+DTEND;TZID=Europe/Copenhagen:20261111T173000
+SUMMARY:Canada vs Finland
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 18 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-19@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261111T190000
+DTEND;TZID=Europe/Copenhagen:20261111T213000
+SUMMARY:United States vs Czechia
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 19 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-20@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261111T190000
+DTEND;TZID=Europe/Copenhagen:20261111T213000
+SUMMARY:Japan vs Sweden
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 20 - Preliminary rou
+ nd\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-21@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261113T110000
+DTEND;TZID=Europe/Copenhagen:20261113T133000
+SUMMARY:Relegation: Relegation TBD vs Relegation TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 21 - Relegation\nSta
+ tus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/events/
+ 2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-22@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261113T150000
+DTEND;TZID=Europe/Copenhagen:20261113T173000
+SUMMARY:Quarterfinal: Quarterfinal TBD vs Quarterfinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 22 - Quarterfinal\nS
+ tatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/event
+ s/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-23@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261113T150000
+DTEND;TZID=Europe/Copenhagen:20261113T173000
+SUMMARY:Quarterfinal: Quarterfinal TBD vs Quarterfinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 23 - Quarterfinal\nS
+ tatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/event
+ s/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-24@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261113T190000
+DTEND;TZID=Europe/Copenhagen:20261113T213000
+SUMMARY:Quarterfinal: Quarterfinal TBD vs Quarterfinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 24 - Quarterfinal\nS
+ tatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/event
+ s/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-25@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261113T190000
+DTEND;TZID=Europe/Copenhagen:20261113T213000
+SUMMARY:Quarterfinal: Quarterfinal TBD vs Quarterfinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 25 - Quarterfinal\nS
+ tatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/event
+ s/2026/ww/schedule
+LOCATION:Hockey Arena Esbjerg\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-26@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261115T150000
+DTEND;TZID=Europe/Copenhagen:20261115T173000
+SUMMARY:Semifinal: Semifinal TBD vs Semifinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 26 - Semifinal\nStat
+ us: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/events/2
+ 026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-27@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261115T190000
+DTEND;TZID=Europe/Copenhagen:20261115T213000
+SUMMARY:Semifinal: Semifinal TBD vs Semifinal TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 27 - Semifinal\nStat
+ us: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/events/2
+ 026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-28@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261116T150000
+DTEND;TZID=Europe/Copenhagen:20261116T173000
+SUMMARY:Bronze medal game: Semifinal losers TBD vs Semifinal losers TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 28 - Bronze medal ga
+ me\nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/
+ events/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:iihf-2026-ww-game-29@community-calendar
+DTSTAMP:20261106T145434Z
+DTSTART;TZID=Europe/Copenhagen:20261116T190000
+DTEND;TZID=Europe/Copenhagen:20261116T213000
+SUMMARY:Gold medal game: Semifinal winners TBD vs Semifinal winners TBD
+DESCRIPTION:IIHF Women's World Championship 2026\nGame 29 - Gold medal game
+ \nStatus: Scheduled\nOfficial schedule/results: https://www.iihf.com/en/ev
+ ents/2026/ww/schedule
+LOCATION:Hockey Arena Herning\, Denmark
+URL:https://www.iihf.com/en/events/2026/ww/schedule
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
