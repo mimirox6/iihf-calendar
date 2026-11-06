@@ -28,7 +28,7 @@ def event_body(game):
     away = TEAM.get(game['away'],game['away'])
     final = game['status'].lower() in ('final','finished','after ot','after so')
     scored = game.get('score_home') is not None and game.get('score_away') is not None
-    title = f'{home} {game["score_home"]} - {game["score_away"]} {away} (Final)' if final and scored else f'{home} vs {away}'
+    title = (f'{home} {game["score_home"]} - {game["score_away"]} {away} ({ "Final" if final else "Live" })' if scored else f'{home} vs {away}')
     if game['phase'] != 'PRE':
         title = f'{PHASE.get(game["phase"],game["phase"])}: {title}'
     return {'id':event_id(n),'summary':title,
