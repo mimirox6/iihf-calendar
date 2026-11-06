@@ -6,7 +6,7 @@
     "home": "AUT",
     "number": 1,
     "phase": "PRE",
-    "score_away": 1,
+    "score_away": 2,
     "score_home": 1,
     "status": "Live",
     "time": "15:00"
@@ -138,7 +138,7 @@
     "home": "SWE",
     "number": 2,
     "phase": "PRE",
-    "score_away": 3,
+    "score_away": 4,
     "score_home": 0,
     "status": "Live",
     "time": "15:00"
