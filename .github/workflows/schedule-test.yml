@@ -1,0 +1,19 @@
+name: Schedule test
+
+on:
+  schedule:
+    - cron: '2,7,12,17,22,27,32,37,42,47,52,57 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm scheduled execution
+        run: |
+          echo "Trigger: ${{ github.event_name }}"
+          echo "UTC time: $(date -u)"
+          echo "GitHub scheduler test successful"
