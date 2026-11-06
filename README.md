@@ -1,64 +1,35 @@
-# IIHF Women's Worlds – Google Calendar sync
+# WWC adaptive score refresh – review package
 
-This is an **add-on** to your existing `mimirox6/iihf-calendar` repository. It does not replace the IIHF scraper, existing games, or public `.ics` feed.
+**Not deployed.** Adds game-day-aware polling to `mimirox6/iihf-calendar` without replacing the existing 2026 scripts or touching Google Calendar during installation. Six local unit tests passed. GitHub API, IIHF live fetch, and Google API writes have not been end-to-end tested.
 
-## Files to upload to the existing repository
+## Included
 
-- `google_calendar_sync.py` → repository root
-- `.github/workflows/update.yml` → **replace** existing file at this path
+- `wwc_refresh.py`: decides whether the current time falls within a game window using `docs/games.json` and `Europe/Copenhagen` for the existing 2026 tournament. Future-year files are supported at `docs/wwc/YYYY/games.json` only when their verified time zones are entered in `wwc_future_config.json`.
+- `.github/workflows/wwc-refresh-controller.yml`: runs once per day, enabling the fast workflow near game days and disabling it otherwise.
+- `.github/workflows/wwc-fast-scores.yml`: when enabled, starts every five minutes, checks for active game windows, and only then runs the existing IIHF parser and Google sync. It commits refreshed `docs` files when changed.
+- `tests/test_wwc_refresh.py`: six local timing tests.
 
-Do not upload `games.sample.json` or the tests unless you want them for reference. Keep your existing `docs/games.json`, `calendar_feed.py`, and `requirements.txt` unchanged.
+## What it does and doesn't do
 
-## 1. Create a Google Calendar
+The controller checks daily. It enables fast polling from the day before through the day after scheduled unfinished games. The fast workflow only fetches scores from one hour before a scheduled game until five hours afterward, stopping sooner if the stored game status becomes Final. This is a conservative **time-window approximation**, not a direct live-status probe. Very long delays, overtime beyond the window, or missing Final status may require an additional catch-up run. GitHub Actions can delay or skip scheduled runs. It may not refresh at five-minute intervals exactly.
 
-On a desktop, open Google Calendar → Settings → Add calendar → Create new calendar. Name it `IIHF Women's Worlds 2026`. Initially keep it private. Under that calendar's **Integrate calendar**, copy **Calendar ID** (often ends in `@group.calendar.google.com`).
+**Monthly discovery is not implemented in this patch.** Future WWC tournament discovery remains a separate preview-only feature, and its outputs must be connected to the documented future-year file path and a verified venue time zone before this scheduler can poll those games. The current `update.yml` still runs every 30 minutes unless its schedule is explicitly removed during the approved migration.
 
-## 2. Create a Google Cloud service account
+## Review and installation checklist (approval required)
 
-1. In Google Cloud Console, create/select a project you control.
-2. Enable **Google Calendar API** for that project.
-3. Go to **IAM & Admin → Service Accounts** and create a service account (no project-wide roles needed).
-4. Open the service account → **Keys → Add key → Create new key → JSON**. Download the JSON securely. Treat it like a password. Google Cloud organization policies may disable service-account key creation; if so, stop rather than weakening policies.
-5. Back in Google Calendar, open the new calendar's **Share with specific people or groups** and share it with the service account email (from the JSON `client_email`), granting **Make changes to events**. Do not grant access to your main calendar.
+1. **Do not upload yet** until you approve replacing the existing schedule. Review this package first.
+2. Back up `.github/workflows/update.yml`. Keep its `workflow_dispatch` trigger, but remove its `schedule` trigger **only after** the new workflows have been tested. Otherwise the old 30-minute checks will continue. Keep the original workflow available for manual recovery.
+3. Add the three code/workflow files at their exact relative paths and add the test file. Do not overwrite `calendar_feed.py`, `google_calendar_sync.py`, `docs/games.json`, or `docs/calendar.ics`.
+4. Set `GOOGLE_SYNC_DRY_RUN=true` before any test runs. Confirm existing `GOOGLE_CALENDAR_ID` and `GOOGLE_SERVICE_ACCOUNT_JSON` secrets remain configured; do not copy credentials into source files.
+5. Run `python -m unittest discover -s tests -p 'test_wwc_refresh.py' -v` and manually run **WWC refresh controller**. Check whether the fast workflow was enabled/disabled as expected. Repository policy must allow `GITHUB_TOKEN` to use `actions: write` for enabling/disabling workflows.
+6. Manually run **WWC fast scores** during a known game window and inspect its output in dry-run mode. Confirm existing Google events are proposed as updates, not creations. Outside a window it should skip the fetch entirely.
+7. Once approved, set `GOOGLE_SYNC_DRY_RUN=false`, verify one real sync, and remove the old 30-minute cron schedule from `update.yml`. Do not disable the old workflow entirely; retain manual recovery.
+8. Monitor the first real game day and the next idle day to verify that the controller correctly manages the fast workflow. If a controller run fails, inspect GitHub Actions rather than assuming the fast workflow has been disabled.
 
-## 3. Add GitHub secrets
+## Important cautions
 
-Repository → Settings → Secrets and variables → Actions → Secrets → New repository secret:
-
-- `GOOGLE_CALENDAR_ID`: the ID from step 1
-- `GOOGLE_SERVICE_ACCOUNT_JSON`: paste the **entire** JSON key file contents, including braces
-
-Never commit the JSON key to GitHub or send it in a screenshot.
-
-Repository → Settings → Secrets and variables → Actions → Variables → New repository variable:
-
-- Name: `GOOGLE_SYNC_DRY_RUN`
-- Value: `true`
-
-The sync workflow skips Google entirely if secrets are missing. When secrets exist, it checks the 29 game records and prints what would be created or changed without writing.
-
-## 4. Upload files and test
-
-1. Upload `google_calendar_sync.py` to repository root.
-2. Replace `.github/workflows/update.yml` with the supplied version. In GitHub, open that file → pencil icon → replace content → commit.
-3. Go to Actions → Update IIHF calendar → Run workflow.
-4. Open the **Sync to Google Calendar** step. Expect `DRY RUN: 29 changes` for a new calendar. If it errors, do not enable writes; check service account permissions, calendar ID and API access.
-5. Set `GOOGLE_SYNC_DRY_RUN` to `false` under Actions Variables.
-6. Run the workflow again. Confirm `SYNC: 29 changes` (create) and verify the 29 games in the new Google Calendar.
-7. Run a third time. Expect `SYNC: 0 changes` (unless the official data changed).
-
-## 5. Make the Google Calendar public and share it
-
-After verifying the events, in Google Calendar → Settings → your IIHF calendar → Access permissions for events → Make available to public. Choose **See all event details** if you want everyone to see teams and scores. Google may warn that anyone can find this calendar; confirm only if you're comfortable with that. Under **Integrate calendar**, copy its **Public URL to this calendar** for viewers. If your organization restricts public sharing, you may need to use a personal Google account or retain the public `.ics` link instead.
-
-**Time zone:** Every game uses `Europe/Copenhagen`; Google displays the correct local time for each viewer. Google may take time to refresh displays.
-
-## Safeguards and limitations
-
-- Only the 29 known numbered games are synchronized. If the IIHF parser fails, the existing workflow stops before Google sync.
-- The script creates deterministic Google event IDs and updates only events with matching private source markers. It **never deletes events**.
-- The first run is read-only by default. An explicit variable change is required to write.
-- The GitHub workflow is scheduled every 30 minutes, but GitHub Actions may delay runs. A green run proves execution, not necessarily an IIHF score change.
-- Google Calendar service accounts may be restricted by Workspace policies; use an account you control.
-- A calendar made public is accessible to anyone with the link and may be indexed.
-- Scores update only when the upstream IIHF feed exposes them and the existing parser recognizes them.
+- The controller can change the enabled/disabled state of the **new fast workflow**, not the Google Calendar. It does not disable itself.
+- If the new fast workflow is disabled, manually starting it may first require enabling it through GitHub's Actions UI.
+- Two concurrent sync workflows can race; avoid running the old scheduled workflow and new fast workflow simultaneously. The fast workflow has its own concurrency group, but the original workflow does not share that group.
+- No automatic deletions are implemented here. Existing stable Google event IDs are controlled by the unchanged `google_calendar_sync.py`.
+- GitHub private-repository Actions minutes and scheduling delays depend on your plan and service load.

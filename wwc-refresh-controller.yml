@@ -1,0 +1,32 @@
+name: WWC refresh controller
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+permissions:
+  contents: read
+  actions: write
+jobs:
+  manage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Determine game days
+        id: window
+        env:
+          WWC_REFRESH_MODE: enable
+        run: python wwc_refresh.py
+      - name: Enable or disable fast-score workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACTIVE: ${{ steps.window.outputs.active }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ "$ACTIVE" = 'true' ]; then
+            gh api -X PUT "repos/$GH_REPO/actions/workflows/wwc-fast-scores.yml/enable"
+          else
+            gh api -X PUT "repos/$GH_REPO/actions/workflows/wwc-fast-scores.yml/disable"
+          fi
