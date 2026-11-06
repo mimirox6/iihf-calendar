@@ -6,9 +6,9 @@
     "home": "AUT",
     "number": 1,
     "phase": "PRE",
-    "score_away": 2,
+    "score_away": 4,
     "score_home": 1,
-    "status": "Scheduled",
+    "status": "Final",
     "time": "15:00"
   },
   "10": {
@@ -138,9 +138,9 @@
     "home": "SWE",
     "number": 2,
     "phase": "PRE",
-    "score_away": 4,
-    "score_home": 0,
-    "status": "Scheduled",
+    "score_away": 5,
+    "score_home": 1,
+    "status": "Final",
     "time": "15:00"
   },
   "20": {
@@ -270,7 +270,7 @@
     "home": "SUI",
     "number": 3,
     "phase": "PRE",
-    "score_away": 1,
+    "score_away": 3,
     "score_home": 0,
     "status": "Live",
     "time": "19:00"
@@ -282,7 +282,7 @@
     "home": "DEN",
     "number": 4,
     "phase": "PRE",
-    "score_away": 1,
+    "score_away": 3,
     "score_home": 0,
     "status": "Live",
     "time": "19:00"
