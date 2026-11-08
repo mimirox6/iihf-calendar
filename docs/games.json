@@ -19,8 +19,8 @@
     "number": 10,
     "phase": "PRE",
     "score_away": 0,
-    "score_home": 2,
-    "status": "Live",
+    "score_home": 9,
+    "status": "Final",
     "time": "19:00"
   },
   "11": {
@@ -342,9 +342,9 @@
     "home": "CZE",
     "number": 9,
     "phase": "PRE",
-    "score_away": 1,
-    "score_home": 0,
-    "status": "Live",
+    "score_away": 2,
+    "score_home": 1,
+    "status": "Final",
     "time": "19:00"
   }
 }
