@@ -54,9 +54,9 @@
     "home": "CZE",
     "number": 13,
     "phase": "PRE",
-    "score_away": 1,
+    "score_away": 2,
     "score_home": 1,
-    "status": "Live",
+    "status": "Final",
     "time": "15:00"
   },
   "14": {
@@ -78,9 +78,9 @@
     "home": "SUI",
     "number": 15,
     "phase": "PRE",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 0,
+    "score_home": 0,
+    "status": "Live",
     "time": "19:00"
   },
   "16": {
@@ -90,9 +90,9 @@
     "home": "SWE",
     "number": 16,
     "phase": "PRE",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 0,
+    "score_home": 0,
+    "status": "Live",
     "time": "19:00"
   },
   "17": {
