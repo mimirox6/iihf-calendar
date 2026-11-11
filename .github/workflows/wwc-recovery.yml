@@ -16,10 +16,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Check active game window
+      - name: Check recovery window
         id: window
         env:
-          WWC_REFRESH_recovery: recovery
+          WWC_REFRESH_MODE: recovery
         run: python wwc_refresh.py
       - name: Fetch IIHF and sync Google Calendar
         if: steps.window.outputs.active == 'true'
@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt google-auth
           python calendar_feed.py
           python google_calendar_sync.py
-          WWC_REFRESH_MODE=mark-success WWC_CHECK_recovery=recovery python wwc_refresh.py
+          WWC_REFRESH_MODE=mark-success WWC_CHECK_MODE=recovery python wwc_refresh.py
       - name: Commit refreshed data and check history
         if: steps.window.outputs.active == 'true'
         run: |
