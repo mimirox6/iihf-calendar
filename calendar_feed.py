@@ -98,10 +98,16 @@ def merge(previous, updates):
     for key, update in updates.items():
         if key not in result: continue
         old = result[key]
-        for field in ('date','time','home','away','city','phase','status'):
+        for field in ('date','time','home','away','city','phase'):
             if update.get(field) is not None: old[field] = update[field]
+        # Never downgrade a confirmed Final because the upstream table is stale.
+        if str(old.get('status','')).lower() in ('final','finished','after ot','after so') and str(update.get('status','')).lower() not in ('final','finished','after ot','after so'):
+            pass
+        elif update.get('status') is not None: old['status'] = update['status']
         # Never erase a previously confirmed score when IIHF temporarily omits it.
-        if update.get('score_home') is not None and update.get('score_away') is not None:
+        old_final = str(previous[key].get('status','')).lower() in ('final','finished','after ot','after so')
+        new_final = str(update.get('status','')).lower() in ('final','finished','after ot','after so')
+        if update.get('score_home') is not None and update.get('score_away') is not None and (not old_final or new_final):
             old['score_home'],old['score_away'] = update['score_home'],update['score_away']
     return result
 
