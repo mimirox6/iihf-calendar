@@ -161,7 +161,7 @@
     "date": "2026-11-13",
     "home": "JPN",
     "number": 21,
-    "phase": "P9-10",
+    "phase": "REL",
     "score_away": 2,
     "score_home": 1,
     "status": "Final",
@@ -199,8 +199,8 @@
     "number": 24,
     "phase": "QF",
     "score_away": 0,
-    "score_home": 5,
-    "status": "Live",
+    "score_home": 14,
+    "status": "Final",
     "time": "19:00"
   },
   "25": {
@@ -211,15 +211,15 @@
     "number": 25,
     "phase": "QF",
     "score_away": 0,
-    "score_home": 0,
-    "status": "Live",
+    "score_home": 1,
+    "status": "Final",
     "time": "19:00"
   },
   "26": {
-    "away": "SF",
+    "away": "FIN",
     "city": "Herning",
     "date": "2026-11-15",
-    "home": "SF",
+    "home": "USA",
     "number": 26,
     "phase": "SF",
     "score_away": null,
@@ -228,10 +228,10 @@
     "time": "15:00"
   },
   "27": {
-    "away": "SF",
+    "away": "SWE",
     "city": "Herning",
     "date": "2026-11-15",
-    "home": "SF",
+    "home": "CAN",
     "number": 27,
     "phase": "SF",
     "score_away": null,
