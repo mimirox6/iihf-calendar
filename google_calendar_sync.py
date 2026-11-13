@@ -12,7 +12,7 @@ TIMEZONE = 'Europe/Copenhagen'
 BASE = 'https://www.googleapis.com/calendar/v3/calendars'
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 SOURCE = 'https://www.iihf.com/en/events/2026/ww/schedule'
-PHASE = {'PRE':'Preliminary round','REL':'Relegation','QF':'Quarterfinal','SF':'Semifinal','BMG':'Bronze medal game','GMG':'Gold medal game'}
+PHASE = {'PRE':'Preliminary round','REL':'Relegation','P9-10':'Placement Round (9–10)','QF':'Quarterfinal','SF':'Semifinal','BMG':'Bronze medal game','GMG':'Gold medal game'}
 TEAM = {'AUT':'Austria','CAN':'Canada','CZE':'Czechia','DEN':'Denmark','FIN':'Finland','GER':'Germany','JPN':'Japan','SUI':'Switzerland','SWE':'Sweden','USA':'United States','RL':'Relegation TBD','QF':'Quarterfinal TBD','SF':'Semifinal TBD','L(SF)':'Semifinal losers TBD','W(SF)':'Semifinal winners TBD'}
 MARKER = 'iihf2026ww'
 

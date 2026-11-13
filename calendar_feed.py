@@ -25,7 +25,7 @@ ROWS = [
 ('10','19:00','SUI','AUT','Esbjerg','PRE'),('10','19:00','SWE','DEN','Herning','PRE'),
 ('11','15:00','GER','SUI','Esbjerg','PRE'),('11','15:00','CAN','FIN','Herning','PRE'),
 ('11','19:00','USA','CZE','Esbjerg','PRE'),('11','19:00','JPN','SWE','Herning','PRE'),
-('13','11:00','RL','RL','Herning','REL'),('13','15:00','QF','QF','Herning','QF'),
+('13','11:00','RL','RL','Herning','P9-10'),('13','15:00','QF','QF','Herning','QF'),
 ('13','15:00','QF','QF','Esbjerg','QF'),('13','19:00','QF','QF','Herning','QF'),
 ('13','19:00','QF','QF','Esbjerg','QF'),('15','15:00','SF','SF','Herning','SF'),
 ('15','19:00','SF','SF','Herning','SF'),('16','15:00','L(SF)','L(SF)','Herning','BMG'),
@@ -34,7 +34,7 @@ TEAM = {'AUT':'Austria','CAN':'Canada','CZE':'Czechia','DEN':'Denmark','FIN':'Fi
         'GER':'Germany','JPN':'Japan','SUI':'Switzerland','SWE':'Sweden','USA':'United States',
         'RL':'Relegation TBD','QF':'Quarterfinal TBD','SF':'Semifinal TBD',
         'L(SF)':'Semifinal losers TBD','W(SF)':'Semifinal winners TBD'}
-PHASE = {'PRE':'Preliminary round','REL':'Relegation','QF':'Quarterfinal',
+PHASE = {'PRE':'Preliminary round','REL':'Relegation','P9-10':'Placement Round (9–10)','QF':'Quarterfinal',
          'SF':'Semifinal','BMG':'Bronze medal game','GMG':'Gold medal game'}
 
 def seed():
@@ -57,7 +57,7 @@ def parse_stats(html):
         # Each official row contains date, time, venue, game number, phase, teams, result, status.
         date = re.search(r'\b(\d{1,2})\s+Nov\s+2026\b', text, re.I)
         time = re.search(r'\b(\d{1,2}:\d{2})\b', text)
-        game = re.search(r'\b(\d{1,2})\s+(PRE|REL|QF|SF|BMG|GMG)\b', text)
+        game = re.search(r'\b(\d{1,2})\s+(P9-10|PRE|REL|QF|SF|BMG|GMG)\b', text)
         if not (date and time and game):
             continue
         number = int(game.group(1))
