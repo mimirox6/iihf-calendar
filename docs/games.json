@@ -174,9 +174,9 @@
     "home": "CAN",
     "number": 22,
     "phase": "QF",
-    "score_away": 0,
-    "score_home": 2,
-    "status": "Live",
+    "score_away": 2,
+    "score_home": 3,
+    "status": "Final",
     "time": "15:00"
   },
   "23": {
@@ -186,9 +186,9 @@
     "home": "GER",
     "number": 23,
     "phase": "QF",
-    "score_away": 2,
+    "score_away": 6,
     "score_home": 0,
-    "status": "Live",
+    "status": "Final",
     "time": "15:00"
   },
   "24": {
