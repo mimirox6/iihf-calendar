@@ -198,9 +198,9 @@
     "home": "USA",
     "number": 24,
     "phase": "QF",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 0,
+    "score_home": 5,
+    "status": "Live",
     "time": "19:00"
   },
   "25": {
@@ -210,9 +210,9 @@
     "home": "SWE",
     "number": 25,
     "phase": "QF",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 0,
+    "score_home": 0,
+    "status": "Live",
     "time": "19:00"
   },
   "26": {
