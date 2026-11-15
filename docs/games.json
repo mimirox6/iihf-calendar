@@ -235,15 +235,15 @@
     "number": 27,
     "phase": "SF",
     "score_away": 0,
-    "score_home": 0,
-    "status": "Live",
+    "score_home": 3,
+    "status": "Final",
     "time": "19:00"
   },
   "28": {
     "away": "FIN",
     "city": "Herning",
     "date": "2026-11-16",
-    "home": "L(SF)",
+    "home": "SWE",
     "number": 28,
     "phase": "BMG",
     "score_away": null,
@@ -252,7 +252,7 @@
     "time": "15:00"
   },
   "29": {
-    "away": "W(SF)",
+    "away": "CAN",
     "city": "Herning",
     "date": "2026-11-16",
     "home": "USA",
