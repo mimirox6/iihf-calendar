@@ -246,9 +246,9 @@
     "home": "SWE",
     "number": 28,
     "phase": "BMG",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 1,
+    "score_home": 2,
+    "status": "Final",
     "time": "15:00"
   },
   "29": {
@@ -258,9 +258,9 @@
     "home": "USA",
     "number": 29,
     "phase": "GMG",
-    "score_away": null,
-    "score_home": null,
-    "status": "Scheduled",
+    "score_away": 2,
+    "score_home": 6,
+    "status": "Live",
     "time": "19:00"
   },
   "3": {
