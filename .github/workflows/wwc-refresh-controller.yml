@@ -25,8 +25,18 @@ jobs:
           ACTIVE: ${{ steps.window.outputs.active }}
           GH_REPO: ${{ github.repository }}
         run: |
+          WORKFLOW="repos/$GH_REPO/actions/workflows/wwc-fast-scores.yml"
+          STATE=$(gh api "$WORKFLOW" --jq '.state')
           if [ "$ACTIVE" = 'true' ]; then
-            gh api -X PUT "repos/$GH_REPO/actions/workflows/wwc-fast-scores.yml/enable"
+            if [ "$STATE" != 'active' ]; then
+              gh api -X PUT "$WORKFLOW/enable"
+            else
+              echo "Fast-score workflow already enabled."
+            fi
           else
-            gh api -X PUT "repos/$GH_REPO/actions/workflows/wwc-fast-scores.yml/disable"
+            if [ "$STATE" = 'active' ]; then
+              gh api -X PUT "$WORKFLOW/disable"
+            else
+              echo "Fast-score workflow already inactive."
+            fi
           fi
